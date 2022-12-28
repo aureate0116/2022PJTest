@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/all.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid d-flex justify-content-between">
+            <a class="navbar-brand" href="./index.html">Logo</a>
+            <ul class="beforeLogin navbar-nav mb-2 mb-lg-0 d-flex flex-row">
+                <li class="nav-item mx-2">
+                    <a href="./login.html"role="button"class="nav-link">登入</a>
+                </li>
+                <li class="nav-item mx-2">
+                    <a href="./register.html" role="button" class="nav-link btn btn-primary text-white">免費註冊</a>
+                </li>
+            </ul>
+            <ul class="afterLogin navbar-nav mb-2 mb-lg-0 d-flex flex-row d-none">
+                <li class="linkToAdmin"></li>
+                <li class="nav-item mx-2"><a role="button" id="collectionLink" href="./myCollection.html">收藏列表</a></li>
+                <li class="nav-item mx-2">Hello!</li>
+                <li class="nav-item mx-2"><a role="button" id="btnLogOut">登出</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container py-4">
+        <h1 class="fw-bold h3"><a target="_blank" href="./createAttratcion.html">新增景點</a></h1>
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col" class="text-center">標題</th>
+                <th scope="col" class="text-center">內文</th>
+                <th scope="col"></th>
+              </tr>
+            </thead>
+            <tbody class="attractionList align-middle">
+              <tr>
+                <th scope="row">1</th>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td>@mdo</td>
+              </tr>
+            </tbody>
+          </table>
+    </main> 
+    
+    
+
+    <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./js/config.js"></script>
+    <script src="./js/all.js"></script>
+    <script src="./js/admin.js"></script>
+
+</body>
+</html>
