@@ -39,7 +39,6 @@ function login(){
         localStorage.setItem('token',`${res.data.accessToken}`);
         localStorage.setItem('userId',`${res.data.user.id}`);
         location.href="./index.html";
-
     })
     .catch(err=>{
         alert('登入資料錯誤')

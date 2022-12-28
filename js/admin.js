@@ -2,24 +2,14 @@ const attractionList = document.querySelector('.attractionList');
 let attractionsData=[];
 
 
-
-
-axios.get(`${apiUrl}/attractions`)
-.then(res=>{
-    attractionsData = res.data;
-    //console.log(attractionsData);
-    renderAttractionList();
-})
-.catch(err=>{
-    console.log(err.response);
-})
-
-
 function renderAttractionList(){
-    let tempStr="";
-    attractionsData.forEach(item=>{
-
-        tempStr +=`
+    axios.get(`${apiUrl}/attractions`)
+    .then(res=>{
+        attractionsData = res.data;
+        console.log(attractionsData);
+        let tempStr="";
+        attractionsData.forEach(item=>{
+            tempStr +=`
             <tr>
                 <th scope="row">${item.id}</th>
                 <td class="col-2">${item.title}</td>
@@ -29,16 +19,27 @@ function renderAttractionList(){
                     <button type="button" data-id="${item.id}" class="btnEdit btn btn-warning mx-2">編輯</button>
                 </td>
             </tr>
-        `;
-    })
-    attractionList.innerHTML = tempStr;
+            `;
+        })
+        attractionList.innerHTML = tempStr;
 
-    const btnsDelete = document.querySelectorAll('.btnDelete');
-    const btnsEdit = document.querySelectorAll('.btnEdit');
-    deleteAttraction(btnsDelete);
-    editAttractionsPage(btnsEdit);
+        const btnsDelete = document.querySelectorAll('.btnDelete');
+        const btnsEdit = document.querySelectorAll('.btnEdit');
+        deleteAttraction(btnsDelete);
+        editAttractionsPage(btnsEdit);
+    })
+    .catch(err=>{
+        console.log(err.response);
+    })
+
+    
+
+   
     
 }
+
+renderAttractionList();
+
 
 
 //刪除
@@ -50,7 +51,8 @@ function deleteAttraction(btnsDelete){
             axios.delete(`${apiUrl}/attractions/${itemId}`,headers)
             .then(res=>{
                 console.log(res);
-                location.reload();
+                renderAttractionList();
+                //location.reload();
             })
             .catch(err=>{
                 console.log(err.response);

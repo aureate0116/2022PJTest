@@ -38,13 +38,13 @@ function renderAttractionItem(){
     attractionIntro.textContent = JSON.stringify(attractionItem); 
 }
 
+const collectionBlock = document.querySelector('.collectionBlock');
+const collectionState = document.querySelector('.collectionState');
+const btnCollection = document.querySelector('.btnCollection');
+const btnCollectCancel = document.querySelector('.btnCollectCancel');
 
 function renderCollectionState(){
-    const collectionBlock = document.querySelector('.collectionBlock');
-    const collectionState = document.querySelector('.collectionState');
-    const btnCollection = document.querySelector('.btnCollection');
-    const btnCollectCancel = document.querySelector('.btnCollectCancel');
-
+    
     //有登入才顯示收藏區塊
     console.log(localStorage.getItem("userId"));
     if(localStorage.getItem("userId") !== null){
@@ -66,12 +66,13 @@ function renderCollectionState(){
     btnCollection.addEventListener('click',e=>{
         collectItem();
     })
-
+    
     btnCollectCancel.addEventListener('click',e=>{
         calcelCollectItem();
     })
-
 }
+
+
 
 //收藏
 function collectItem(){
@@ -81,7 +82,11 @@ function collectItem(){
     },headers)
     .then(res=>{
         console.log("成功收藏");
-        location.reload();
+        // location.reload();
+        collectionState.textContent = "已收藏";
+        btnCollection.setAttribute("class","d-none");
+        btnCollectCancel.setAttribute("class","btn btn-secondary btnCollectCancel d-inline-block");
+        //renderCollectionState();
     })
     .catch(err=>{
         if (err?.response?.status === 401) {
@@ -95,14 +100,15 @@ function collectItem(){
 function calcelCollectItem(){
     axios.delete(`${apiUrl}/600/collections/${collectionsData.id}`,headers)
     .then(res=>{
-        console.log(headers);
+        //console.log(headers);
         console.log("成功取消");
-        location.reload();
+        //location.reload();
+        collectionState.textContent = "未收藏";
+        btnCollection.setAttribute("class","btn btn-secondary btnCollection d-inline-block");
+        btnCollectCancel.setAttribute("class","d-none");
+        //renderCollectionState();
     })
     .catch(err=>{
-        // if (err?.response?.status === 401) {
-        //     clearLocalStorage();
-        // }
         console.log(err.response);
     })
 }

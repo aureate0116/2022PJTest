@@ -41,7 +41,7 @@ function register(){
         "name": "", 
         "email":accountEmail.value,
         "password": accountPassword.value,
-        "role":"admin"
+        "role":"user"
     })
     .then(res=>{
         accountEmail.value="";

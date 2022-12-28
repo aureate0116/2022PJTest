@@ -11,19 +11,18 @@ let userList = [];
  axios.get(`${apiUrl}/users`)
  .then(res=>{
      userList = res.data;
-     //console.log(res.data);
-     if (res?.status === 401) {
+     //console.log(res);
+     if (res.status === 401) {
          clearLocalStorage();
+         changeHeader();
      }
      changeHeader();
  }).catch(err=>{
-     if (err?.response?.status === 401) {
+     if (err.response.status === 401) {
          clearLocalStorage();
+         changeHeader();
      }
  })
-
-
- 
 
 function changeHeader(){
     //判斷登入登出切換 header
@@ -33,12 +32,9 @@ function changeHeader(){
 
         const userId = localStorage.getItem("userId");
         const pageNow =location.href.split("/")
-        // console.log(pageNow);
-        //console.log(userId);
         if(userList[`${userId-1}`]?.role==="admin"){
             
             if(pageNow.includes("admin.html") || pageNow.includes("createAttratcion.html")){
-                console.log('admin')
                 document.querySelector('#collectionLink').setAttribute("class","d-none");
                 linkToAdmin.innerHTML=`<a href="./index.html">前往前台</a>`;
             }else{
@@ -49,7 +45,6 @@ function changeHeader(){
             if(pageNow.includes("admin.html") || pageNow.includes("createAttratcion.html")){
                 location.href="./index.html";
             }
-           
         }
 
     }
