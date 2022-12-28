@@ -11,6 +11,16 @@ axios.get(`${apiUrl}/attractions`)
     console.log(err.response);
 })
 
+// axios.get(`${apiUrl}`)
+// .then(res=>{
+//     attractionsData = res.data.attractions;
+//     console.log(attractionsData);
+//     renderAttraction();
+// })
+// .catch(err=>{
+//     console.log(err.response);
+// })
+
 
 const attractionList = document.querySelector('.attractionList');
 

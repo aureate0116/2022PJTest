@@ -9,12 +9,23 @@ axios.get(`${apiUrl}/attractions?id=${attractionId}`)
 .then(res=>{
     //attractionItem = res.data.attractions[attractionId-1];
     attractionItem = res.data;
-    //console.log(attractionItem);
+    console.log(attractionItem);
     renderAttractionItem();
 })
 .catch(err=>{
     console.log(err.response);
 })
+
+// axios.get(`${apiUrl}`)
+// .then(res=>{
+//     //attractionItem = res.data.attractions[attractionId-1];
+//     attractionItem = res.data.attractions[attractionId-1];
+//     //console.log(attractionItem);
+//     renderAttractionItem();
+// })
+// .catch(err=>{
+//     console.log(err.response);
+// })
 
 
 //取得登入用戶的收藏資料
@@ -22,7 +33,6 @@ let collectionsData = [];
 
 axios.get(`${apiUrl}/collections?_expand=attraction&&attractionId=${attractionId}&&userId=${localStorage.getItem("userId")}`)
 .then(res=>{
-    //attractionItem = res.data.attractions[attractionId-1];
     collectionsData = res.data[0];
     console.log(collectionsData);
     renderCollectionState();
@@ -30,6 +40,8 @@ axios.get(`${apiUrl}/collections?_expand=attraction&&attractionId=${attractionId
 .catch(err=>{
     console.log(err.response);
 })
+
+
 
 
 

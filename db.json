@@ -1,0 +1,31 @@
+{
+    "users": [
+      { "id": 1, "name": "Rena", "email":"rena@gmail.com","password": "123456" ,"role":"admin"},
+      { "id": 2, "name": "Joan", "email":"joan@gmail.com", "password": "123456" ,"role":"user"},
+      { "id": 3, "name": "Amy", "email":"amy.lin@gmail.com", "password": "123123" ,"role":"admin"},
+      { "id": 4, "name": "Jerry", "email":"jerry@gmail.com", "password": "$2a$10$eBuSAx37d/caneySgDmEue7CanA8cTuCGYqBqSHGw55s2JeMkAEeu" ,"role":"admin"},
+      { "id": 5, "name": "Dora", "email":"dora.lin@gmail.com", "password": "$2a$10$EiOuy/82i60QF2pAuciXq.v3XEPMRKCtPgiXrtl5M1BjRXGhZFRgu" ,"role":"admin"}
+    ],
+    "attractions": [
+      { "id": 1, "title": "艾菲爾鐵塔", "description": "艾菲爾鐵塔 (巴黎鐵塔)，法國精神象徵，是極具指標性的巴黎必去景點首選！最多人推薦夏樂宮、戰神廣場這兩個拍照點，無論是日景、夜景都適合，輕鬆抓好比例拍下整座鐵塔和巴黎天空。建於1889年鐵塔總高324公尺，登塔有一二層、登頂兩種方案，從巴黎市最高建築俯瞰市容超浪漫。" ,"imageUrl":"https://pic.pimg.tw/debby100/1653136710-3696888258-g.jpg","userId":1},
+      { "id": 2, "title": "凱旋門", "description": "凱旋門，法國巴黎旅遊超夯景點，在香榭麗舍大道盡頭，拿破崙為紀念打敗俄奧聯軍所修建。兩面牆上有4組以戰爭為題材的大型浮雕，「出征、勝利、抵抗、和平」，壯觀宏偉相當有氣勢呢！觀景台能眺望巴黎風景 (含巴黎鐵塔)，但樓梯近300多階，旋轉易頭暈要有點體力才行啊，僅老幼可搭電梯。欣賞四通八達車流交匯，上面還有歷史博物館、伴手禮店，最後凱旋門下刻有戰將名，為那段歷史留下深刻印記。" ,"imageUrl":"https://pic.pimg.tw/anrine910070/1653187026-953607768-g.jpg","userId":1},
+      { "id": 3, "title": "羅浮宮博物館", "description": "法國羅浮宮，世界四大博物館之一，擁有豐富館藏，是非去不可的法國巴黎自由行景點，但要小心扒手。羅浮宮門口，透明玻璃金字塔是這裡最大特徵，總共分成黎塞留館、敘利館、德農館等3個展館，能逛一整天。人山人海偌大博物館該如何逛起？波比推薦鎮館之寶《蒙娜麗莎》、維納斯女神像、勝利女神像超熱門！" ,"imageUrl":"https://pic.pimg.tw/anrine910070/1653286100-3465329917-g.jpg","userId":1}
+    ],
+    "collections":[
+      {
+        "id":1,
+        "userId":1,
+        "attractionId":1
+      },
+      {
+         "id":2,
+        "userId":3,
+        "attractionId":1
+      },
+      {
+         "id":3,
+        "userId":3,
+        "attractionId":2
+      }
+    ]
+  }

@@ -9,6 +9,14 @@ axios.get(`${apiUrl}/users`)
     console.log(err.response);
 })
 
+// axios.get(`${apiUrl}`)
+// .then(res=>{
+//     usersData = res.data.users;
+// })
+// .catch(err=>{
+//     console.log(err.response);
+// })
+
 
 //取得欄位資料,監聽按鈕
 const accountEmail = document.querySelector("#email");
@@ -26,7 +34,6 @@ btnRegister.addEventListener("click",e=>{
                 accountPassword.value="";
             }
         })
-        //return;
     }
     
     register();

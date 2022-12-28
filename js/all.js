@@ -5,19 +5,19 @@ const linkToAdmin = document.querySelector('.linkToAdmin');
 
 //取得用戶資料
 let userList = [];
-// changeHeader();
 
  //如果 timeout
- axios.get(`${apiUrl}/users`)
+ axios.get(`${apiUrl}/users/${localStorage.getItem("userId")}`,{},headers)
  .then(res=>{
      userList = res.data;
-     //console.log(res);
+      console.log(userList);
      if (res.status === 401) {
          clearLocalStorage();
          changeHeader();
      }
      changeHeader();
  }).catch(err=>{
+
      if (err.response.status === 401) {
          clearLocalStorage();
          changeHeader();
@@ -31,8 +31,9 @@ function changeHeader(){
         beforeLogin.setAttribute("class","d-none");
 
         const userId = localStorage.getItem("userId");
-        const pageNow =location.href.split("/")
-        if(userList[`${userId-1}`]?.role==="admin"){
+        const pageNow =location.href.split("/");
+        //userList[`${userId-1}`]?.role==="admin"
+        if(userList.role==="admin"){
             
             if(pageNow.includes("admin.html") || pageNow.includes("createAttratcion.html")){
                 document.querySelector('#collectionLink').setAttribute("class","d-none");
